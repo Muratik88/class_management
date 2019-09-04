@@ -1,21 +1,18 @@
 package com.company;
 
-import com.company.model.Course;
-import com.company.model.Group;
-import com.company.model.Student;
-import com.company.model.Teacher;
-import com.company.services.AdministratorService;
-import com.company.services.DbService;
-import com.company.services.impl.AdministratorServiceImpl;
-import com.company.services.impl.DbServiceImpl;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
-import java.util.Date;
 
-public class Main {
+public class Main extends Application {
 
     public static void main(String[] args) {
-        AdministratorService service = new AdministratorServiceImpl();
+        launch(args);
 
+        //        AdministratorService service = new AdministratorServiceImpl();
 //        Course course = new Course("English",1000,3);
 //        service.createCourse(course);
 
@@ -27,5 +24,25 @@ public class Main {
 
 //        Student student = new Student("Чынгыз", "996332211","ул.Месароша 123",null);
 //        service.createStudent(student);
+    }
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+//        Parent root = FXMLLoader.load(getClass().getResource("courseView.fxml"));
+//        primaryStage.setTitle("Создание курса");
+//        primaryStage.setScene(new Scene(root));
+//        primaryStage.show();
+
+//        Parent root = FXMLLoader.load(getClass().getResource("teacherView.fxml"));
+//        primaryStage.setTitle("Регистрация учителя");
+//        primaryStage.setScene(new Scene(root));
+//        primaryStage.show();
+
+        Parent root = FXMLLoader.load(getClass().getResource("studentView.fxml"));
+        primaryStage.setTitle("Регистрация студента");
+        primaryStage.setScene(new Scene(root));
+        primaryStage.show();
+
+
     }
 }

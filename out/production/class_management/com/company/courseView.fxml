@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="250.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.CourseView">
+   <children>
+      <Button fx:id="btnOk" defaultButton="true" layoutX="50.0" layoutY="157.0" mnemonicParsing="false" onAction="#onButtonClicked" prefHeight="24.0" prefWidth="95.0" text="Сохранить" />
+      <TextField fx:id="txtNameCourse" layoutX="50.0" layoutY="40.0" prefHeight="24.0" prefWidth="192.0" promptText="Название курса" />
+      <TextField fx:id="txtPrice" layoutX="50.0" layoutY="71.0" prefHeight="24.0" prefWidth="193.0" promptText="Стоимость" />
+      <TextField fx:id="txtDuration" layoutX="50.0" layoutY="101.0" prefHeight="24.0" prefWidth="194.0" promptText="Продолжительность" />
+      <Button fx:id="btnCancel" layoutX="150.0" layoutY="157.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="95.0" text="Отмена" />
+   </children>
+</AnchorPane>
