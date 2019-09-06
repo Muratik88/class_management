@@ -38,6 +38,14 @@ public class TeacherView {
 
     @FXML
     void onButtSaveClicked(ActionEvent event) {
+        if (event.getSource().equals(btnSave)){
+            addTeacher();
+        }else{
+            btnCancel.getScene().getWindow().hide();
+        }
+    }
+
+    private void addTeacher() {
         String name = txtName.getText();
         String phone = txtPhone.getText();
         String address = txtAddress.getText();
@@ -45,6 +53,7 @@ public class TeacherView {
         Teacher teacher = new Teacher(name, phone, address, null);
         AdministratorService service = new AdministratorServiceImpl();
         service.createTeacher(teacher);
+        btnSave.getScene().getWindow().hide();
     }
 
     @FXML

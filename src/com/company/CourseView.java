@@ -36,6 +36,14 @@ public class CourseView {
 
     @FXML
     void onButtonClicked(ActionEvent event) {
+        if (event.getSource().equals(btnOk)){
+            addCourse();
+        }else {
+            btnCancel.getScene().getWindow().hide();
+        }
+    }
+
+    private void addCourse() {
         String name = txtNameCourse.getText();
         double price = Double.parseDouble(txtPrice.getText());
         int duration = Integer.parseInt(txtDuration.getText());
@@ -43,6 +51,7 @@ public class CourseView {
         Course course = new Course(name, price, duration);
         AdministratorService service = new AdministratorServiceImpl();
         service.createCourser(course);
+        btnOk.getScene().getWindow().hide();
     }
 
     @FXML

@@ -11,19 +11,6 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch(args);
-
-        //        AdministratorService service = new AdministratorServiceImpl();
-//        Course course = new Course("English",1000,3);
-//        service.createCourse(course);
-
-//        Teacher teacher = new Teacher("Жылдыз", "9965515544330","ул.Ленина 15", null);
-//        service.createTeacher(teacher);
-
-//        Group group = new Group(1,1, new Date());
-//        service.createGroup(group);
-
-//        Student student = new Student("Чынгыз", "996332211","ул.Месароша 123",null);
-//        service.createStudent(student);
     }
 
     @Override
@@ -38,11 +25,9 @@ public class Main extends Application {
 //        primaryStage.setScene(new Scene(root));
 //        primaryStage.show();
 
-        Parent root = FXMLLoader.load(getClass().getResource("studentView.fxml"));
-        primaryStage.setTitle("Регистрация студента");
+        Parent root = FXMLLoader.load(getClass().getResource("loginView.fxml"));
+        primaryStage.setTitle("Авторизация");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
-
-
     }
 }

@@ -1,9 +1,6 @@
 package com.company.services;
 
-import com.company.model.Course;
-import com.company.model.Group;
-import com.company.model.Student;
-import com.company.model.Teacher;
+import com.company.model.*;
 
 public interface DbService {
 
@@ -11,4 +8,7 @@ public interface DbService {
     boolean appendTeacher(Teacher teacher);
     boolean createGroup(Group group);
     boolean appendStudent(Student student);
+    boolean appendUser(User user);
+    boolean checkUser(String login, String password);
+
 }

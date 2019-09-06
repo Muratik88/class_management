@@ -1,9 +1,6 @@
 package com.company.services.impl;
 
-import com.company.model.Course;
-import com.company.model.Group;
-import com.company.model.Student;
-import com.company.model.Teacher;
+import com.company.model.*;
 import com.company.services.DbService;
 
 import java.sql.*;
@@ -86,5 +83,47 @@ public class DbServiceImpl implements DbService {
             return false;
         }
     }
+
+    @Override
+    public boolean appendUser(User user) {
+        try {
+            Connection conn = getConnection();
+            String sql = "INSERT INTO users(user_name, user_pass) VALUES (?, ?)";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, user.getName());
+            ps.setString(2, user.getPassword());
+            ps.executeUpdate();
+            conn.close();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    @Override
+    public boolean checkUser(String login, String password) {
+        try {
+            Connection conn = getConnection();
+            String sql = "SELECT user_name, user_pass FROM users WHERE user_name = ? AND user_pass = ?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, login);
+            ps.setString(2, password);
+            ResultSet resultSet = ps.executeQuery();
+
+            if (resultSet.next()){
+//                System.out.println(login);
+//                System.out.println(password);
+                conn.close();
+                return true;
+            }else {
+                return false;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
 
 }

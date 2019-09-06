@@ -46,7 +46,27 @@ public class AdministratorServiceImpl implements AdministratorService {
     }
 
     @Override
+    public void createUser(User user) {
+        DbService dbService = new DbServiceImpl();
+        if (dbService.appendUser(user)){
+            System.out.println("Successfully!");
+        }else{
+            System.out.println("Error creating!");
+        }
+    }
+
+    @Override
     public void registerStudentToGroup(StudentGroup studentGroup) {
 
+    }
+
+    @Override
+    public boolean checkCredentials(String login, String password) {
+        DbService dbService = new DbServiceImpl();
+        if (dbService.checkUser(login, password)){
+            return true;
+        }else {
+            return false;
+        }
     }
 }
