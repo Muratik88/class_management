@@ -4,6 +4,8 @@ import com.company.model.*;
 import com.company.services.AdministratorService;
 import com.company.services.DbService;
 
+import java.util.List;
+
 public class AdministratorServiceImpl implements AdministratorService {
     @Override
     public void createCourser(Course course) {
@@ -68,5 +70,15 @@ public class AdministratorServiceImpl implements AdministratorService {
         }else {
             return false;
         }
+    }
+
+    public List<Teacher> getTeacherList(){
+        DbService dbService = new DbServiceImpl();
+        return  dbService.getTeacherList();
+    }
+
+    public List<Course> getCoursesList(){
+        DbService dbService = new DbServiceImpl();
+        return dbService.getCourseList();
     }
 }

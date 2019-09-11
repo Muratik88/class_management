@@ -4,6 +4,8 @@ import com.company.model.*;
 import com.company.services.DbService;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DbServiceImpl implements DbService {
     private Connection getConnection() throws SQLException {
@@ -112,8 +114,6 @@ public class DbServiceImpl implements DbService {
             ResultSet resultSet = ps.executeQuery();
 
             if (resultSet.next()){
-//                System.out.println(login);
-//                System.out.println(password);
                 conn.close();
                 return true;
             }else {
@@ -123,6 +123,42 @@ public class DbServiceImpl implements DbService {
             e.printStackTrace();
             return false;
         }
+    }
+
+    @Override
+    public List<Teacher> getTeacherList() {
+        List<Teacher> list = new ArrayList<>();
+        try {
+            Connection conn = getConnection();
+            String sql = "SELECT teacher_id, name, phone, address FROM teachers";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet resultSet = ps.executeQuery();
+            while (resultSet.next()){
+                Teacher teacher = new Teacher(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3), resultSet.getString(4));
+                list.add(teacher);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    @Override
+    public List<Course> getCourseList() {
+        List<Course> list = new ArrayList<>();
+        try {
+            Connection conn = getConnection();
+            String sql = "Select courses_id, name, duration, price FROM courses";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet resultSet = ps.executeQuery();
+            while (resultSet.next()){
+                Course course = new Course(resultSet.getInt(1), resultSet.getString(2),resultSet.getDouble(3),resultSet.getInt(4));
+                list.add(course);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
     }
 
 

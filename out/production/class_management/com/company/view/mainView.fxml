@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="406.0" prefWidth="608.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.view.MainController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="Меню">
+            <items>
+              <MenuItem fx:id="menuItemClose" mnemonicParsing="false" onAction="#menuClose" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Справочники">
+            <items>
+              <MenuItem fx:id="menuItemCourses" mnemonicParsing="false" onAction="#menuCourses" text="Курсы" />
+                  <MenuItem fx:id="menuItemTeachers" mnemonicParsing="false" onAction="#menuTeachers" text="Учителя" />
+                  <MenuItem fx:id="menuItemStudents" mnemonicParsing="false" onAction="#menuStudent" text="Студенты" />
+                  <MenuItem fx:id="menuItemGroups" mnemonicParsing="false" onAction="#menuGroups" text="Группы" />
+                  <MenuItem fx:id="menuItemUsers" mnemonicParsing="false" onAction="#menuUsers" text="Пользователь" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+</BorderPane>

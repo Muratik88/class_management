@@ -1,21 +1,22 @@
 package com.company.model;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Group {
     private int id;
     private int courseId;
     private int teacherId;
-    private Date startDate;
+    private LocalDate startDate;
 
-    public Group(int id, int courseId, int teacherId, Date startDate) {
+    public Group(int id, int courseId, int teacherId, LocalDate startDate) {
         this.id = id;
         this.courseId = courseId;
         this.teacherId = teacherId;
         this.startDate = startDate;
     }
 
-    public Group(int courseId, int teacherId, Date startDate) {
+    public Group(int courseId, int teacherId, LocalDate startDate) {
         this.courseId = courseId;
         this.teacherId = teacherId;
         this.startDate = startDate;
@@ -41,11 +42,11 @@ public class Group {
         this.teacherId = teacherId;
     }
 
-    public Date getStartDate() {
+    public LocalDate getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(LocalDate startDate) {
         this.startDate = startDate;
     }
 }

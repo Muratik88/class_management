@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.view.StudentControllerMain">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="Управление">
+            <items>
+              <MenuItem fx:id="menuAddStudent" mnemonicParsing="false" onAction="#onAddAction" text="Добавить" />
+                  <MenuItem fx:id="menuEditStudent" mnemonicParsing="false" onAction="#onEditAction" text="Изменить" />
+                  <MenuItem fx:id="menuDeleteStudent" mnemonicParsing="false" onAction="#onDeleteAction" text="Удалить" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn prefWidth="187.63635140657425" text="Ф.И.О" />
+          <TableColumn minWidth="0.0" prefWidth="102.98179626464844" text="Телефон" />
+            <TableColumn minWidth="0.0" prefWidth="91.63641357421875" text="Адрес" />
+        </columns>
+      </TableView>
+   </center>
+</BorderPane>
