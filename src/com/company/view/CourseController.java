@@ -10,6 +10,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 public class CourseController {
 
@@ -34,10 +36,22 @@ public class CourseController {
     @FXML
     private Button btnCancel;
 
+    private Course course;
+    private boolean checkInit;
+
+    public void initData(Course course){
+        this.course = course;
+        txtNameCourse.setText(course.getName());
+        txtPrice.setText(String.valueOf(course.getPrice()));
+        txtDuration.setText(String.valueOf(course.getDuration()));
+        checkInit = true;
+    }
     @FXML
     void onButtonClicked(ActionEvent event) {
         if (event.getSource().equals(btnOk)){
             addCourse();
+            Stage stage = (Stage)(btnOk.getScene().getWindow());
+            stage.fireEvent(new WindowEvent(stage, WindowEvent.WINDOW_CLOSE_REQUEST));
         }else {
             btnCancel.getScene().getWindow().hide();
         }
@@ -48,10 +62,18 @@ public class CourseController {
         double price = Double.parseDouble(txtPrice.getText());
         int duration = Integer.parseInt(txtDuration.getText());
 
-        Course course = new Course(name, price, duration);
-        AdministratorService service = new AdministratorServiceImpl();
-        service.createCourser(course);
-        btnOk.getScene().getWindow().hide();
+        if (checkInit){
+            course.setName(name);
+            course.setPrice(price);
+            course.setDuration(duration);
+            AdministratorService service = new AdministratorServiceImpl();
+            service.updateCourse(course);
+        }else{
+            Course course = new Course(name, price, duration);
+            AdministratorService service = new AdministratorServiceImpl();
+            service.createCourse(course);
+        }
+
     }
 
     @FXML

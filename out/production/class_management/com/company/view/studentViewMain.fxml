@@ -7,37 +7,27 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.BorderPane?>
 
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.view.StudentControllerMain">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
           <Menu mnemonicParsing="false" text="Управление">
             <items>
-              <MenuItem fx:id="menuAddStudent" mnemonicParsing="false" onAction="#onAddAction" text="Добавить" />
-                  <MenuItem fx:id="menuEditStudent" mnemonicParsing="false" onAction="#onEditAction" text="Изменить" />
-                  <MenuItem fx:id="menuDeleteStudent" mnemonicParsing="false" onAction="#onDeleteAction" text="Удалить" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Help">
-            <items>
-              <MenuItem mnemonicParsing="false" text="About" />
+              <MenuItem fx:id="menuItemAdd" mnemonicParsing="false" onAction="#onMenuItemAction" text="Добавить" />
+                  <MenuItem fx:id="menuItemEdt" mnemonicParsing="false" onAction="#onMenuItemAction" text="Изменить" />
+                  <MenuItem fx:id="menuItemDelete" mnemonicParsing="false" onAction="#onMenuItemAction" text="Удалить" />
             </items>
           </Menu>
         </menus>
       </MenuBar>
    </top>
    <center>
-      <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <TableView fx:id="tblStudent" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <columns>
-          <TableColumn prefWidth="187.63635140657425" text="Ф.И.О" />
-          <TableColumn minWidth="0.0" prefWidth="102.98179626464844" text="Телефон" />
-            <TableColumn minWidth="0.0" prefWidth="91.63641357421875" text="Адрес" />
+          <TableColumn fx:id="colName" prefWidth="187.63635140657425" text="Ф.И.О" />
+          <TableColumn fx:id="colPhone" minWidth="0.0" prefWidth="102.98179626464844" text="Телефон" />
+            <TableColumn fx:id="colAddress" minWidth="0.0" prefWidth="91.63641357421875" text="Адрес" />
+            <TableColumn fx:id="colID" minWidth="0.0" prefWidth="91.63641357421875" text="ID" />
         </columns>
       </TableView>
    </center>

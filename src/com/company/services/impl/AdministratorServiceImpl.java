@@ -8,12 +8,22 @@ import java.util.List;
 
 public class AdministratorServiceImpl implements AdministratorService {
     @Override
-    public void createCourser(Course course) {
+    public void createCourse(Course course) {
         DbService dbService = new DbServiceImpl();
         if (dbService.createCourse(course)){
             System.out.println("Successfully!");
         }else{
             System.out.println("Error creating!");
+        }
+    }
+
+    @Override
+    public void updateCourse(Course course) {
+        DbService dbService = new DbServiceImpl();
+        if (dbService.updateCourse(course)){
+            System.out.println("Successfully!");
+        }else{
+            System.out.println("Error deleting!");
         }
     }
 
@@ -72,13 +82,49 @@ public class AdministratorServiceImpl implements AdministratorService {
         }
     }
 
-    public List<Teacher> getTeacherList(){
+    public List<Teacher> getTeachersList(){
         DbService dbService = new DbServiceImpl();
-        return  dbService.getTeacherList();
+        return  dbService.getTeachersList();
     }
 
     public List<Course> getCoursesList(){
         DbService dbService = new DbServiceImpl();
         return dbService.getCourseList();
+    }
+
+    @Override
+    public void deleteCourse(int course_id) {
+        DbService dbService = new DbServiceImpl();
+        if (dbService.deleteCourse(course_id)){
+            System.out.println("Successfully!");
+        }else{
+            System.out.println("Error deleting!");
+        }
+    }
+
+    @Override
+    public List<Student> getStudentsList() {
+        DbService dbService = new DbServiceImpl();
+        return dbService.getStudentsList();
+    }
+
+    @Override
+    public void deleteStudents(int students_id) {
+        DbService dbService = new DbServiceImpl();
+        if (dbService.deleteStudents(students_id)){
+            System.out.println("Successfully!");
+        }else{
+            System.out.println("Error deleting!");
+        }
+    }
+
+    @Override
+    public void updateStudent(Student student) {
+        DbService dbService = new DbServiceImpl();
+        if (dbService.updateStudent(student)){
+            System.out.println("Successfully!");
+        }else{
+            System.out.println("Error deleting!");
+        }
     }
 }

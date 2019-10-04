@@ -31,7 +31,6 @@ public class UserController {
         }else{
             btnCancel.getScene().getWindow().hide();
         }
-
     }
 
     private void addUser() {
@@ -49,5 +48,4 @@ public class UserController {
         service.createUser(user);
         btnEnter.getScene().getWindow().hide();
     }
-
 }

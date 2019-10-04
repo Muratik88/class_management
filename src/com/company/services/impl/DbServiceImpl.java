@@ -34,6 +34,25 @@ public class DbServiceImpl implements DbService {
         }
     }
 
+    @Override
+    public boolean updateCourse(Course course) {
+        try {
+            Connection conn = getConnection();
+            String sql = "UPDATE courses set name = ?, duration = ?, price = ? where courses_id = ?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, course.getName());
+            ps.setInt(2, course.getDuration());
+            ps.setDouble(3, course.getPrice());
+            ps.setInt(4, course.getId_course());
+            ps.executeUpdate();
+            conn.close();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
     public boolean createGroup(Group group){
         try {
             Connection conn = getConnection();
@@ -126,7 +145,7 @@ public class DbServiceImpl implements DbService {
     }
 
     @Override
-    public List<Teacher> getTeacherList() {
+    public List<Teacher> getTeachersList() {
         List<Teacher> list = new ArrayList<>();
         try {
             Connection conn = getConnection();
@@ -137,6 +156,7 @@ public class DbServiceImpl implements DbService {
                 Teacher teacher = new Teacher(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3), resultSet.getString(4));
                 list.add(teacher);
             }
+            conn.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -155,11 +175,81 @@ public class DbServiceImpl implements DbService {
                 Course course = new Course(resultSet.getInt(1), resultSet.getString(2),resultSet.getDouble(3),resultSet.getInt(4));
                 list.add(course);
             }
+            conn.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return list;
     }
 
+    @Override
+    public boolean deleteCourse(int course_id) {
+        try {
+            Connection conn = getConnection();
+            String sql = "delete from courses where courses_id = ?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, course_id);
+            ps.executeUpdate();
+            conn.close();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 
+    @Override
+    public List<Student> getStudentsList() {
+        List<Student> list = new ArrayList<>();
+        try {
+            Connection conn = getConnection();
+            String sql = "select student_id, name, phone, address FROM students";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet resultSet = ps.executeQuery();
+            while (resultSet.next()){
+                Student student = new Student(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3), resultSet.getString(4));
+                list.add(student);
+            }
+            conn.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    @Override
+    public boolean deleteStudents(int student_id) {
+        try {
+            Connection conn = getConnection();
+            String sql = "delete from students where student_id = ?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, student_id);
+            ps.executeUpdate();
+            conn.close();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    @Override
+    public boolean updateStudent(Student student) {
+        try {
+            Connection conn = getConnection();
+            String sql = "UPDATE students set name = ?, phone = ?, address = ? where student_id = ?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, student.getName());
+            ps.setString(2, student.getPhone());
+            ps.setString(3, student.getAddress());
+            ps.setInt(4, student.getId());
+            ps.executeUpdate();
+            conn.close();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }

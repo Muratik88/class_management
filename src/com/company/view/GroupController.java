@@ -73,7 +73,7 @@ public class GroupController {
 
 
         AdministratorService service = new AdministratorServiceImpl();
-        List<Teacher> list = service.getTeacherList();
+        List<Teacher> list = service.getTeachersList();
 
         ObservableList<Teacher> observableList = FXCollections.observableArrayList(list);
         cmbTeachers.setItems(observableList);

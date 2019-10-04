@@ -13,9 +13,9 @@
         <menus>
           <Menu mnemonicParsing="false" text="Управление">
             <items>
-              <MenuItem fx:id="menuAddCourse" mnemonicParsing="false" onAction="#onAddAction" text="Добавить" />
-                  <MenuItem fx:id="menuEditCourse" mnemonicParsing="false" onAction="#onEditAction" text="Редактировать" />
-                  <MenuItem fx:id="menuDeleteCourse" mnemonicParsing="false" onAction="#onDeleteAction" text="Удалить" />
+              <MenuItem fx:id="menuItemAdd" mnemonicParsing="false" onAction="#onMenuItemAction" text="Добавить" />
+                  <MenuItem fx:id="menuItemEdit" mnemonicParsing="false" onAction="#onMenuItemAction" text="Редактировать" />
+                  <MenuItem fx:id="menuItemDelete" mnemonicParsing="false" onAction="#onMenuItemAction" text="Удалить" />
             </items>
           </Menu>
         </menus>
